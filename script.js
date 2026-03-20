@@ -210,5 +210,4 @@ checkBtn.onclick = function () {
         checkBtn.disabled = true;
         userInput.disabled = true;
     }
-
-};
+}
