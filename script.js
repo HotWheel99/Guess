@@ -58,6 +58,7 @@ let categories = [
             "испания",
             "польша",
             "япония",
+            "тайвань",
             "китай",
             "канада",
             "бразилия",
@@ -89,21 +90,23 @@ let categories = [
     }
 ];
 
+//Не забудь пройтись по ебанным циклам чтобы потом на уроке не экать бекать!!!
+
 let main = document.querySelector("main");
 
 let complitedWord = []
 let wins = document.querySelector(".wins");
 
-let randomName = getRandomWord(0, categories.length - 1);
-console.log(randomName);
+// let randomName = getRandomWord(0, categories.length - 1);
+// console.log(randomName);
 
-let randomWord = getRandomWord(0, categories[randomName].words.length - 1);
-console.log(randomWord);
+// let randomWord = getRandomWord(0, categories[randomName].words.length - 1);
+// console.log(randomWord);
 
-let selectedCategory = categories[randomName].name;
-let secretWord = categories[randomName].words[randomWord];
+// let selectedCategory = categories[randomName].name;
+// let secretWord = categories[randomName].words[randomWord];
 
-console.log(`Категория: ${selectedCategory} Слово: ${secretWord}`);
+// console.log(`Категория: ${selectedCategory} Слово: ${secretWord}`);
 
 
 //let randomIndex = getRandomWord(0, words.length - 1);
@@ -120,11 +123,10 @@ let checkBtn = document.querySelector(".check-btn");
 let userInput = document.querySelector(".input");
 let letterNotFound = document.querySelector(".letter-not-found");
 
-
 let keysBox = document.querySelector(".letters");
 let keyboard = document.querySelectorAll(".letter__btn");
 
-category.innerHTML = selectedCategory;
+// category.innerHTML = selectedCategory;
 
 let attempts = 5;
 
@@ -136,7 +138,7 @@ function getRandomWord(min, max) {
 };
 
 userInput.focus();
-newGame.disabled = true;
+// newGame.disabled = true;
 
 newGame.onclick = function () {
     startGame();
@@ -162,6 +164,13 @@ function startGame() {
     letterNotFound.value = "";
     notCorrectLetter = [];
     userInput.focus();
+    let questWord = "";
+
+    for (let char of secretWord) {
+        questWord += "*";
+    }
+
+    secretInput.value = questWord;
 }
 
 function checkLetter() {
@@ -197,7 +206,7 @@ function checkLetter() {
 
     let questWord = "";
     //for (let i = 0; i < secretWord.length; i++) {
-    for (char of secretWord) {
+    for (let char of secretWord) {
 
         if (letters.indexOf(char) != -1) {
             questWord = questWord + char;
@@ -235,8 +244,8 @@ document.onkeypress = function (event) {
         }
     }
 
-    else{
-        if(event.keyCode == 13){
+    else {
+        if (event.keyCode == 13) {
             startGame();
         }
     }
