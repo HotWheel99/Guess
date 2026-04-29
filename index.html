@@ -5,25 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Виселица</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1 class="title">Виселица</h1>
-    <p>Количество попыток: <span class="attempts">5</span></p>
-    <p>Категория: <span class="category"></span></p>
-    <div>
-        <input type="text" class="word" disabled>
-        <button class="new-game">Начать игру</button>
-    </div>
-    <br>
-    <div>
-        <input type="text" class="input">
-        <button class="check-btn">Проверить букву</button>
-    </div>
-    <br>
-    <div class="">
-        <input style="width: 100%" type="text" class="letter-not-found" disabled>
-    </div>
+    <main class="main">
+        <h1 class="title">Виселица</h1>
+        <p>Количество попыток: <span class="attempts">5</span></p>
+        <p>Категория: <span class="category"></span></p>
+        <p>Побед: <span class="wins">0</span></p>
+        <div>
+            <input type="text" class="word" disabled>
+            <button class="new-game">Начать игру</button>
+        </div>
+        <br>
+        <div>
+            <input type="text" class="input">
+
+        </div>
+        <br>
+        <div class="">
+            <input type="text" class="letter-not-found" disabled>
+        </div>
+
+        <div class="letters">
+            <div class="letters__container">
+                <button class="letter__btn">й</button>
+                <button class="letter__btn">ц</button>
+                <button class="letter__btn">у</button>
+                <button class="letter__btn">к</button>
+                <button class="letter__btn">е</button>
+                <button class="letter__btn">н</button>
+                <button class="letter__btn">г</button>
+                <button class="letter__btn">ш</button>
+                <button class="letter__btn">щ</button>
+                <button class="letter__btn">з</button>
+                <button class="letter__btn">х</button>
+                <button class="letter__btn">ъ</button>
+            </div>
+
+            <div class="letters__container">
+                <button class="letter__btn">ф</button>
+                <button class="letter__btn">ы</button>
+                <button class="letter__btn">в</button>
+                <button class="letter__btn">а</button>
+                <button class="letter__btn">п</button>
+                <button class="letter__btn">р</button>
+                <button class="letter__btn">о</button>
+                <button class="letter__btn">л</button>
+                <button class="letter__btn">д</button>
+                <button class="letter__btn">ж</button>
+                <button class="letter__btn">э</button>
+            </div>
+
+            <div class="letters__container">
+                <button class="letter__btn">я</button>
+                <button class="letter__btn">ч</button>
+                <button class="letter__btn">с</button>
+                <button class="letter__btn">м</button>
+                <button class="letter__btn">и</button>
+                <button class="letter__btn">т</button>
+                <button class="letter__btn">ь</button>
+                <button class="letter__btn">б</button>
+                <button class="letter__btn">ю</button>
+                <button class="check-btn"><img src="img/arrow-enter.svg" alt=""></button>
+            </div>
+
+        </div>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
+
 </html>

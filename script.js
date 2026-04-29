@@ -39,7 +39,8 @@ let categories = [
             "кенгуру",
             "дельфин",
             "акула",
-            "кит"
+            "кит",
+            "черемша"
         ]
     },
 
@@ -88,6 +89,10 @@ let categories = [
     }
 ];
 
+let main = document.querySelector("main");
+
+let complitedWord = []
+let wins = document.querySelector(".wins");
 
 let randomName = getRandomWord(0, categories.length - 1);
 console.log(randomName);
@@ -115,6 +120,10 @@ let checkBtn = document.querySelector(".check-btn");
 let userInput = document.querySelector(".input");
 let letterNotFound = document.querySelector(".letter-not-found");
 
+
+let keysBox = document.querySelector(".letters");
+let keyboard = document.querySelectorAll(".letter__btn");
+
 category.innerHTML = selectedCategory;
 
 let attempts = 5;
@@ -130,6 +139,10 @@ userInput.focus();
 newGame.disabled = true;
 
 newGame.onclick = function () {
+    startGame();
+};
+
+function startGame() {
     attempts = 5;
     attemptsText.innerHTML = attempts;
     letters = [];
@@ -149,10 +162,11 @@ newGame.onclick = function () {
     letterNotFound.value = "";
     notCorrectLetter = [];
     userInput.focus();
-};
+}
 
-checkBtn.onclick = function () {
+function checkLetter() {
     let userText = userInput.value;
+
     userText = userText.toLowerCase();
 
     if (userText === "") {
@@ -197,7 +211,7 @@ checkBtn.onclick = function () {
     secretInput.value = questWord;
 
     if (attempts === 0) {
-        alert("Вы проиграли");
+        attemptsText.innerHTML = "Вы проиграли";
         secretInput.value = secretWord;
         newGame.disabled = false;
         checkBtn.disabled = true;
@@ -205,9 +219,38 @@ checkBtn.onclick = function () {
     }
 
     if (secretWord === questWord) {
-        alert("Победа");
+        attemptsText.innerHTML = "Победа!";
         newGame.disabled = false;
         checkBtn.disabled = true;
         userInput.disabled = true;
+        wins.innerHTML++;
     }
 }
+
+document.onkeypress = function (event) {
+
+    if (userInput.disabled == false) {
+        if (event.keyCode == 13) {
+            checkLetter();
+        }
+    }
+
+    else{
+        if(event.keyCode == 13){
+            startGame();
+        }
+    }
+
+}
+
+checkBtn.onclick = function () {
+    checkLetter();
+};
+
+keysBox.onclick = function () {
+    let key = event.target;
+    if (key.classList.contains("letter__btn")) {
+        console.dir(key);
+        userInput.value = key.textContent;
+    }
+};
